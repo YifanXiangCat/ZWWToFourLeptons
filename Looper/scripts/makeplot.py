@@ -5,20 +5,20 @@ import ROOT as r
 
 import glob
 bkgfiles = [
-        "results/ttz.root",
-        "results/zz.root",
-        "results/wz.root",
-        "results/twz.root",
-        "results/rare.root",
-        "results/vh.root",
-        "results/dyttbar.root",
+        "outputs/ttz.root",
+        "outputs/zz.root",
+        "outputs/wz.root",
+        "outputs/twz.root",
+        "outputs/rare.root",
+        "outputs/vh.root",
+        "outputs/dyttbar.root",
         ]
 sigfiles = [
-        "results/sig.root",
-        "results/wwz.root",
+        "outputs/sig.root",
+        "outputs/wwz.root",
         ]
 
-allfiles = glob.glob("results/MC_*")
+allfiles = glob.glob("outputs/MC_*")
 
 allfiles = [ f for f in allfiles if "ttbar" not in f ]
 allfiles = [ f for f in allfiles if "dy_m" not in f ]

@@ -2,8 +2,9 @@
 
 EXE=Analysis.exe
 
-SOURCES=$(wildcard srcs/*.C)
-OBJECTS=$(SOURCES:.C=.o)
+SOURCES=$(wildcard srcs/*.C) rooutil/rooutil.cc
+TMPOBJECTS=$(SOURCES:.C=.o)
+OBJECTS=$(TMPOBJECTS:.cc=.o)
 
 CC          = g++
 CXX         = g++
@@ -24,6 +25,9 @@ $(EXE): $(OBJECTS)
 	$(LD) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) $(ROOTLIBS) $(EXTRAFLAGS) -o $@
 
 %.o: %.C
+	$(CC) $(CFLAGS) $(EXTRACFLAGS) $< -c -o $@
+
+%.o: %.cc
 	$(CC) $(CFLAGS) $(EXTRACFLAGS) $< -c -o $@
 
 clean:
